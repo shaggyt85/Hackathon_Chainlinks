@@ -9,7 +9,7 @@ import { SidebarContext } from "@/app/Context/SidebarContext";
 const linksSidebar = [
   {
     label: "Mi cuenta",
-    route: "/pages/perfil",
+    route: "/pages/perfil/profile",
     icon: <MdAccountCircle />,
   },
   {
@@ -41,7 +41,9 @@ const Sidebar = () => {
       </button>
       <aside className={`w-[242px] h-[90vh] bg-gray-100 p-4 transition-all duration-300 ease-in-out ${isCollapsedSidebar ? "w-[5.3rem]" : "translate-x-0"}`}>
         <div className="w-full flex pb-4 mb-4 border-b border-gray-300 border-solid items-center gap-4 justify-center">
-          <Image src="/assets/Logo.jpg" alt="logo" width={100} height={100} className="w-[55px] h-[56px] object-cover border-y-transparent   rounded-full " />
+          <Link href="/pages/perfil">
+          <Image src="/assets/Logo.jpg" alt="logo" width={80} height={80} className="w-[55px] h-[55px] object-cover border-y-transparent   rounded-full " />
+          </Link>
           <p className={`text-[1.1rem] font-semibold ${isCollapsedSidebar ? "hidden" : "block"}`}>Crowfunding Web3</p>
         </div>
         <ul className="list-none">
