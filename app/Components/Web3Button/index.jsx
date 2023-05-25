@@ -24,7 +24,7 @@ const Web3Button = () => {
   return (
     <>
     <div>
-      {isLoggedIn ? (<ConnectButton variant='primary' label='sign out' chainStatus="icon" />) : (<ConnectButton variant='primary' label='sign in' chainStatus="icon" />)}
+      {isLoggedIn ? (<ConnectButton variant='primary' label='Connect Wallet' chainStatus="icon" />) : (<ConnectButton variant='primary' label='Connect Wallet' chainStatus="icon" />)}
     </div>
     </>
   )

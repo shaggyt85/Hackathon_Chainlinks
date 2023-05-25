@@ -14,11 +14,11 @@ const links = [
     route: "/",
   },
   {
-    label: "Campañas",
+    label: "Campaigns",
     route: "/pages/campañas",
   },
   {
-    label: "Nosotros",
+    label: "About",
     route: "/pages/nosotros",
   },
 ];

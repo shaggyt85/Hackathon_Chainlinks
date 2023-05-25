@@ -8,23 +8,23 @@ import { SidebarContext } from "@/app/Context/SidebarContext";
 
 const linksSidebar = [
   {
-    label: "Mi cuenta",
+    label: "My Account",
     route: "/pages/perfil/profile",
     icon: <MdAccountCircle />,
   },
   {
-    label: "Donaciones",
+    label: "Donator",
     route: "/pages/campañas",
     icon: <MdPaid />,
   },
   {
-    label: "Campañas",
+    label: "Campaigns",
     route: "#",
     icon: <MdOutlineCampaign />,
   },
   {
-    label: "Crear Camapañas",
-    route: "#",
+    label: "New Campaigns",
+    route: "/pages/perfil/newcampaigns",
     icon: <MdOutlineFiberNew />,
   },
 ];
@@ -44,7 +44,7 @@ const Sidebar = () => {
           <Link href="/pages/perfil">
           <Image src="/assets/Logo.jpg" alt="logo" width={80} height={80} className="w-[55px] h-[55px] object-cover border-y-transparent   rounded-full " />
           </Link>
-          <p className={`text-[1.1rem] font-semibold ${isCollapsedSidebar ? "hidden" : "block"}`}>Crowfunding Web3</p>
+          <p className={`text-[1.1rem] font-semibold ${isCollapsedSidebar ? "hidden" : "block"}`}>Crowdfunding Web3</p>
         </div>
         <ul className="list-none">
           {linksSidebar.map((link) => (

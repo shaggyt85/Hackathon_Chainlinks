@@ -12,6 +12,8 @@ import PhotoForm from './PhotoForm'
 import Profile from './Profile'
 import CancelCustomButton from './CancelCustomButton'
 import SaveCustomButton from './SaveCustomButton'
+import NewCampaigns from './NewCampaigns'
+import FormFieldCamapigns from './FormFieldCamapigns'
 
 
 
@@ -29,5 +31,7 @@ export {
     PhotoForm,
     Profile,
     CancelCustomButton,
-    SaveCustomButton
+    SaveCustomButton,
+    NewCampaigns,
+    FormFieldCamapigns
 }
