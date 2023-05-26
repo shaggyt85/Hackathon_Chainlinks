@@ -5,7 +5,7 @@ const FormFieldCamapigns = ({LabelName,
   inputType,
   isTextArea,
   value,
-  handleChange,}) => {
+  handleChange}) => {
   return (
     <label className="flex-1 w-full flex flex-col">
       {LabelName && (

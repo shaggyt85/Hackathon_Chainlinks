@@ -8,6 +8,9 @@ import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet, polygon, optimism, arbitrum, bscTestnet, bsc } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { SidebarProvider } from "./Context/SidebarContext";
+import { StateProvider } from "./Context/StateProvider";
+import { initialState } from "./Context/initialState";
+import { reducer } from "./Context/reducer";
 const inter = Inter({ subsets: ["latin"] });
 
 const { chains, publicClient } = configureChains(
@@ -36,6 +39,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <StateProvider initialState={initialState} reducer={reducer}>
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains}>
             <NavBar />
@@ -44,6 +48,7 @@ export default function RootLayout({ children }) {
             </SidebarProvider>
           </RainbowKitProvider>
         </WagmiConfig>
+        </StateProvider>
       </body>
     </html>
   );

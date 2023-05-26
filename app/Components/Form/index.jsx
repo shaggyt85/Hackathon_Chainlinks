@@ -1,5 +1,5 @@
 import React from 'react'
-import { AboutForm, CancelCustomButton, CustomButton, PhotoForm, SaveCustomButton, UserName } from '..'
+import { AboutForm, CancelCustomButton, PhotoForm, SaveCustomButton, UserName } from '..'
 
 const Form = () => {
   return (
