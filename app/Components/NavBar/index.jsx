@@ -6,7 +6,6 @@ import { useState } from "react";
 import Logo from "../../../public/assets/Logo.jpg";
 import menu from "../../../public/assets/menu.svg";
 import search from "../../../public/assets/search.svg";
-import { useRouter } from "next/navigation";
 
 const links = [
   {
@@ -15,7 +14,7 @@ const links = [
   },
   {
     label: "Campaigns",
-    route: "/pages/campañas",
+    route: "/pages/campaigns",
   },
   {
     label: "About",
@@ -25,18 +24,12 @@ const links = [
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-
-  function handleClick () {
-    const router = useRouter();
-    router.push("/pages/nosotros");
-  }
-
   
   return (
     <nav className="flex items-center justify-between w-full h-[70px] py-4 bg-white shadow-md ">
       <div className="flex flex-row py-2 pl-4 pr-2 h-[52px] items-center">
         {/* logo  */}
-        <Link href="/">
+        <Link rel="preload" href="/" as="/" >
           <Image
             className="object-contain rounded-[100px]"
             src={Logo}
@@ -66,16 +59,13 @@ const NavBar = () => {
         <ul className="hidden md:flex items-center space-x-4">
           {links.map((link) => (
             <li key={link.label}>
-              <Link href={link.route}>{link.label}</Link>
+              <Link rel="preload" href={link.route} as={link.route} >{link.label}</Link>
             </li>
           ))}
         </ul>
       </div>
       <div className="hidden md:flex items-center space-x-4">
-            <Web3Button
-          handleClick={handleClick}
-        />
-          
+        <Web3Button />
       </div>
 
       
@@ -96,14 +86,15 @@ const NavBar = () => {
                   className="flex align-center justify-center  py-4 px-8"
                 >
                   <Link
+                  rel="preload"
                     className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
-                    href={link.route}
-                  >
+                    href={link.route} 
+                    as={link.route} >
                     {link.label}
                   </Link>
                 </li>
               ))}
-              <Web3Button />
+              <Web3Button btnTitle="Connect Wallet"/>
             </ul>
             </div>
           )}

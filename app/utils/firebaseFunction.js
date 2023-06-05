@@ -3,8 +3,8 @@ import { firestore } from "@/firebase.config"
 
 // Saving new Item
 export const saveItem = async (data) => {
-    await setDoc(doc(firestore, 'Campaigns', `${Date.now()}` ), data, {merge : true,}
-    )
+        await setDoc(doc(firestore, 'Campaigns', `${Date.now()}` ), data, {merge : true,}
+        ) 
 }
 
 export const getAllCampaigns = async () => {

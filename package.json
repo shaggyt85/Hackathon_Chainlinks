@@ -11,7 +11,10 @@
   "dependencies": {
     "@rainbow-me/rainbowkit": "^1.0.0",
     "@tailwindcss/forms": "^0.5.3",
+    "@thirdweb-dev/react": "^3.12.4",
+    "@thirdweb-dev/sdk": "^3.10.19",
     "bufferutil": "^4.0.7",
+    "ethers": "^5.7.2",
     "firebase": "^9.22.1",
     "next": "13.4.2",
     "next-auth": "^4.22.1",
@@ -22,13 +25,14 @@
     "react-responsive-carousel": "^3.2.23",
     "swiper": "^9.3.1",
     "tailwindcss": "3.3.2",
-    "utf-8-validate": "^5.0.10",
-    "viem": "^0.3.30",
-    "wagmi": "^1.0.5"
+    "utf-8-validate": "^5.0.10"
   },
   "devDependencies": {
+    "@types/react": "18.2.7",
     "autoprefixer": "^10.4.14",
     "encoding": "^0.1.13",
+    "lokijs": "^1.5.12",
+    "pino-pretty": "^10.0.0",
     "postcss": "^8.4.23"
   }
 }

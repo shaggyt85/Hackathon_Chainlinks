@@ -15,7 +15,7 @@ const FormFieldCamapigns = ({LabelName,
       )}
       {isTextArea ? (
         <textarea
-          required
+          
           value={value}
           onChange={handleChange}
           rows={10}
@@ -24,7 +24,7 @@ const FormFieldCamapigns = ({LabelName,
         />
       ) : (
         <input
-          required
+          
           value={value}
           onChange={handleChange}
           type={inputType}

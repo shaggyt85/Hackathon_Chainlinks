@@ -1,30 +1,30 @@
 'use client'
 import React, { useEffect } from 'react'
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useRouter } from 'next/navigation';
-import { useAccount } from 'wagmi';
+import { ConnectWallet } from '@thirdweb-dev/react'
+import { useStateContext } from '@/app/Context/Thirdweb';
 
 
 const Web3Button = () => {
   const router = useRouter();
-  const { isConnected } = useAccount();
+  const {address} = useStateContext()
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  
+      
   useEffect(() => {
-    if (isConnected) {
+    if (!address) {
+      setIsLoggedIn(false)
+      router.push('/');
+    }else{
       setIsLoggedIn(true);
-      router.push('/pages/perfil');
+    router.push('/pages/perfil');
     }
-     else {
-    setIsLoggedIn(false);
-  } },  [isConnected])
+  }), [address]
 
-  
 
   return (
     <>
     <div>
-      {isLoggedIn ? (<ConnectButton variant='primary' label='Connect Wallet' chainStatus="icon" />) : (<ConnectButton variant='primary' label='Connect Wallet' chainStatus="icon" />)}
+      {isLoggedIn ? (<ConnectWallet  />) : (<ConnectWallet  />)}
     </div>
     </>
   )

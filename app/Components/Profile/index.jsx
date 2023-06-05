@@ -1,8 +1,11 @@
+'use client'
 import React from 'react'
 import { CancelCustomButton, SaveCustomButton } from '..'
 
+
 const Profile = () => {
   return (
+    <>
     <form>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
@@ -143,6 +146,7 @@ const Profile = () => {
         <SaveCustomButton />
       </div>
     </form>
+    </>
   )
 }
 

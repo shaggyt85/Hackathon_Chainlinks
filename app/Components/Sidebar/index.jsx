@@ -18,8 +18,8 @@ const linksSidebar = [
     icon: <MdPaid />,
   },
   {
-    label: "Campaigns",
-    route: "#",
+    label: "User Campaigns",
+    route: "/pages/usercampaigns",
     icon: <MdOutlineCampaign />,
   },
   {
@@ -41,7 +41,7 @@ const Sidebar = () => {
       </button>
       <aside className={`w-[242px] h-[90vh] bg-gray-100 p-4 transition-all duration-300 ease-in-out ${isCollapsedSidebar ? "w-[5.3rem]" : "translate-x-0"}`}>
         <div className="w-full flex pb-4 mb-4 border-b border-gray-300 border-solid items-center gap-4 justify-center">
-          <Link href="/pages/perfil">
+          <Link  rel="preload" href="/pages/perfil" as="/pages/perfil">
           <Image src="/assets/Logo.jpg" alt="logo" width={80} height={80} className="w-[55px] h-[55px] object-cover border-y-transparent   rounded-full " />
           </Link>
           <p className={`text-[1.1rem] font-semibold ${isCollapsedSidebar ? "hidden" : "block"}`}>Crowdfunding Web3</p>
@@ -49,7 +49,7 @@ const Sidebar = () => {
         <ul className="list-none">
           {linksSidebar.map((link) => (
             <li className="sidebar__item" key={link.label}>
-              <Link href={link.route} className=" text-[1.1rem] py-[16px] px-[12px] mb-[16px] flex cursor-pointer bg-white hover:bg-blue-100 transition-all duration-300 ease-in-out rounded-[1rem] " >
+              <Link rel="preload" href={link.route} as={link.route} className=" text-[1.1rem] py-[16px] px-[12px] mb-[16px] flex cursor-pointer bg-white hover:bg-blue-100 transition-all duration-300 ease-in-out rounded-[1rem] " >
                 <span className="text-[1.7rem] flex">{link.icon}</span>
                 <span className={`ml-[0.5rem] ${isCollapsedSidebar ? "hidden" : "block"}`}>{link.label}</span>
               </Link>
