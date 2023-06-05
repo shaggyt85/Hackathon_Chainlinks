@@ -14,7 +14,7 @@ const linksSidebar = [
   },
   {
     label: "Donator",
-    route: "/pages/campañas",
+    route: "#",
     icon: <MdPaid />,
   },
   {
