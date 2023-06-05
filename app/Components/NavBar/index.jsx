@@ -20,6 +20,10 @@ const links = [
     label: "About",
     route: "/pages/nosotros",
   },
+  {
+    label: "Profile",
+    route: "/pages/perfil",
+  },
 ];
 
 const NavBar = () => {
