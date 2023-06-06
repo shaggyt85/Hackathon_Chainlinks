@@ -7,7 +7,6 @@ import { saveItem } from '@/app/utils/firebaseFunction';
 import { useStateContext } from '@/app/Context/Thirdweb';
 import { useStateValue } from '@/app/Context/StateProvider';
 import { ethers } from 'ethers';
-import Getcampaigns from '../Getcampaigns';
 import { useRouter } from 'next/navigation';
 // import { useRouter } from 'next/router';
 import { useThemeContext } from '@/app/Context/GetCampaigns';
@@ -39,8 +38,6 @@ const NewCampaigns = () => {
   const lastIdCampaigns = campaigns.map(campaign => {
     return campaign.id
   }).at(-1)
-
-  console.log(lastIdCampaigns, "lastIdCampaigns")
   
   const handleFormFieldChange = (fieldName, e) => {
     setIsForm({
@@ -105,16 +102,6 @@ const NewCampaigns = () => {
       endAt: '',
   })
 }
-
-  //   const fetchData = async () => {
-  //     await getAllCampaigns().then(data => {
-  //       console.log(data,  'data')
-  //       dispatch({
-  //         type: "SET_CAMPAIGNS",
-  //         payload: data
-  //     })
-  //   })
-  // }
 
   return (
     <div className=" flex justify-center items-center flex-col rounded-[10px]">

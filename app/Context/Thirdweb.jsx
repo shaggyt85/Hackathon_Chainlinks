@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, createContext, useEffect, useState } from "react";
+import React, { useContext, createContext } from "react";
 import {
   useContract,
   useContractWrite,
@@ -21,6 +21,8 @@ export const StateContextProvider = ({ children }) => {
     contract,
     "create"
   );
+  const { mutateAsync: voteCampaign } = useContractWrite(contract, "voteCampaign")
+
   const address = useAddress();
   const connect = useMetamask();
   
@@ -51,14 +53,28 @@ export const StateContextProvider = ({ children }) => {
     return parsedCampaigns
   }
 
+
+
   const getUserCampaigns = async () => {
     const allCampaigns = await getCampaigns()
     const filteredCampaigns = allCampaigns.filter(campaign => campaign.owner === address)
     return filteredCampaigns
   }
+
+  const getVote = async (idUrl) => {
+    console.log(idUrl, "getVote")
+    try {
+      const data = await voteCampaign({args: [
+        idUrl.idUrl,
+      ]})
+      console.log("Vote call success", data)
+    }catch(error){
+    console.log("contract call failure", error)
+    }
+  }
   
   return (
-    <StateContext.Provider value={{ contract, connect, address, getCampaigns, create: publishCampaigns, getUserCampaigns }}>
+    <StateContext.Provider value={{ contract, connect, address, getCampaigns, create: publishCampaigns, getUserCampaigns, voteCampaign: getVote, }}>
       {children}
     </StateContext.Provider>
   );

@@ -20,6 +20,7 @@ import Getcampaigns from './Getcampaigns'
 import HomeCard from './HomeCard'
 import UserDisplayCampaigns from './UserDisplayCampaigns'
 import CountBox from './CountBox'
+import About from './About'
 
 
 
@@ -47,5 +48,6 @@ export {
     Getcampaigns,
     HomeCard,
     UserDisplayCampaigns,
-    CountBox
+    CountBox,
+    About
 }
