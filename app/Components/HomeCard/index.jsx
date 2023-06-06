@@ -1,12 +1,13 @@
 'use client'
 import React from 'react'
 import { useThemeContext } from '../../Context/GetCampaigns'
+import { FaEthereum } from 'react-icons/fa'
 import  folder  from '@/public/assets/folder.svg'
 import Logo from '@/public/assets/Logo.jpg'
 import Image from "next/image";
 
 
-const HomeCard = ({owner, target, endAt, startAt, votes, id,}) => {
+const HomeCard = ({owner, target, votes, id}) => {
     const {data} = useThemeContext()    
     const parsedData = data.map((item) => ({...item}))
     const dataFirebase = (id) => {
@@ -15,45 +16,38 @@ const HomeCard = ({owner, target, endAt, startAt, votes, id,}) => {
       const item = dataFirebase(id);
       if (item) {
         return (
-          <div className="sm:w-[288px] w-full rounded-[15px] bg-[#e2dfdfec] p-[20px] cursor-pointer">
-            <img src={item.image} alt="fund" className="w-full h-[158px] object-cover rounded-[15px]"  />
-            <div className="flex flex-col p-4">
-      <div className="flex flex-row items-center mb-[18px]">
-        <Image src={folder} alt="tag" className="W-[17px] h-[17px] object-contain" />
-        <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">Campaign</p>
+          <div className="sm:w-[18rem] w-full rounded-[1rem] bg-[#e5e5ee] p-[20px] cursor-pointer" onClick={() => {window.location.href = `/pages/campaigns/${item.id}`}}>
+            <img src={item.image} alt="fund" className="w-full h-40 object-cover rounded-[1rem]"  />
+            <div className="flex flex-col p-2">
+      <div className="flex flex-row items-center mb-[1.25rem]">
+        <Image src={folder} alt="tag" className="w-[1.125rem] h-[1.125rem]  object-contain" />
+        <p className="ml-[0.75rem] font-epilogue font-medium text-[1rem] ">Campaign</p>
       </div>
       </div>
-      <div className="block">
-        <h3 className="font-epilogue font-semibold text-[16px] text-black text-left leading-[26px] truncate">Titulo:{item.title}</h3>
-        <h3 className="font-epilogue font-semibold text-[16px] text-black text-left leading-[26px] truncate">Nombre:{item.name}</h3>
-        <p className="mt-[5px] font-epilogue font-normal text-[#808191] text-left leading-[18px] truncate">Description:{item.description}</p>
+      <div className="block p-2">
+        <h3 className="font-epilogue font-semibold text-[1rem] text-left leading-[1.625rem] truncate">Titulo: <span className='font-normal'>{item.title}</span> </h3>
+        <h3 className="font-epilogue font-semibold text-[1rem]  text-left leading-[1.625rem] truncate">Nombre: <span className='font-normal'> {item.name}</span> </h3>
+        <p className="mt-[5px] font-epilogue font-semibold  text-left leading-[1.625rem] truncate">Story: <span className='font-normal'>{item.description}</span></p>
       </div>
-      <div className="flex justify-between flex-wrap mt-[15px] gap-2">
+      <div className="flex justify-between flex-wrap gap-2 p-2">
         <div className="flex flex-col">
-          <h4 className="font-epilogue font-semibold text-[14px] text-[#b2b3bd] leading-[22px]">amountCollected</h4>
-          <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[#808191] sm:max-w-[120px] truncate">Raised of {target}</p>
+          <h4 className="font-epilogue font-semibold text-[1rem] leading-[1.625rem]">Amount Collected</h4>
+          <div className='flex flex-row items-center'>
+          <p className="mt-[0.12rem] font-epilogue font-semibold text-[1rem] leading-[1.625rem] sm:max-w-[9rem] truncate">Goals of: <span className='font-normal truncate'>{target}</span></p>
+          <FaEthereum/>
+          </div>
         </div>
-        {/* <div className="flex flex-col">
-          <h4 className="font-epilogue font-semibold text-[14px] text-[#b2b3bd] leading-[22px]">{remainingDays}</h4>
-          <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[#808191] sm:max-w-[120px] truncate">Days Left {target}</p>
-        </div> */}
       </div>
-      <div className="flex items-center mt-[20px] gap-[12px] ">
-        <div className="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#13131a]"> 
-          <Image src={Logo} alt="user" className="w-1/2 h-1/2 object-contain"  />
+      <div className="flex items-center gap-[12px] p-2 ">
+        <div className="w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center"> 
+          <Image src={Logo} alt="user" className="w-full h-full object-contain rounded-full"  />
         </div>
-        <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate">by <span className="text-[#b2b3bd]">{owner}</span></p>
+        <p className="flex-1 font-epilogue font-semibold text-[0.875rem]  truncate">by: <span className="font-normal">{owner}</span></p>
       </div>
-      <div className="flex items-center mt-[20px] gap-[12px] ">
-        <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate">Votes <span className="text-[#b2b3bd]">{votes}</span></p>
+      <div className="flex items-center p-2 gap-[12px] ">
+        <p className="flex-1 font-epilogue font-semibold text-[0.875rem] truncate">Votes: <span className="font-normal">{votes}</span></p>
 
-      </div>
-            {/* <p>ID: {id}</p> */}
-                        
-            {/* <p>Start At: {formattedDate} </p>
-            <p>End At: {formattedEndDate} Days</p>
-            <p>Finally: {remainingDays}</p> */}
-            
+      </div>            
           </div>
         );
       }

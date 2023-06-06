@@ -19,6 +19,7 @@ import FundCard from './FundCard'
 import Getcampaigns from './Getcampaigns'
 import HomeCard from './HomeCard'
 import UserDisplayCampaigns from './UserDisplayCampaigns'
+import CountBox from './CountBox'
 
 
 
@@ -45,5 +46,6 @@ export {
     FundCard,
     Getcampaigns,
     HomeCard,
-    UserDisplayCampaigns
+    UserDisplayCampaigns,
+    CountBox
 }

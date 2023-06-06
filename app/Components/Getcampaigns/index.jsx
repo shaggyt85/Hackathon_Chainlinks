@@ -6,7 +6,7 @@ import DisplayCampaigns from '../DisplayCampaigns'
 const Getcampaigns = () => {
   const {campaigns, isLoading, data} = useThemeContext()
   return (
-    <DisplayCampaigns  title="all Campaigns" isLoading={isLoading} campaigns={campaigns} data={data}/>
+    <DisplayCampaigns  title="All Campaigns" isLoading={isLoading} campaigns={campaigns} data={data} />
   )
 }
 

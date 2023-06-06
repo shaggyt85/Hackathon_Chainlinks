@@ -42,13 +42,14 @@ const NavBar = () => {
             height={50}
           />
         </Link>
+        <p className="hidden md:flex font-epilogue font-normal text-[1rem] gap-2 p-2">CrowdFunding</p>
       </div>
       {/* search bar   */}
-      <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#e5e5ee] items-center rounded-[100px]">
+      <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[3rem] bg-[#e5e5ee] items-center rounded-full">
         <input
           type="text"
           placeholder="Search for campaigns"
-          className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent outline-none"
+          className="flex w-full font-epilogue font-normal text-[1rem]   bg-transparent border-none "
         />
         <div className="w-[72px] h-full rounded-[20px] bg-[#E8831D] flex justify-center items-center cursor-pointer">
           <Image

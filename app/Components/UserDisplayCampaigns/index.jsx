@@ -3,18 +3,22 @@ import FundCard from '../FundCard'
 import Image from 'next/image'
 import loader from '@/public/assets/loader.svg'
 
-const UserDisplayCampaigns = ({title, isLoading, userCampaigns}) => {
+
+const UserDisplayCampaigns = ({title, isLoading, userCampaigns, params }) => {
+  
   return (
     <div>
-        <h1 className="font-epilogue font-semibold text-[18px] text-left">{title}</h1>
-        <div className="flex flex-wrap mt-[20px] gap-[26px]">
+      <div className='flex justify-center pt-4'>
+      <h1 className="flex font-epilogue font-semibold text-[1rem] bg-[#e5e5ee] px-3 py-2 rounded-[1rem] justify-center text-center max-w-[16.5rem] uppercase">{title}</h1>
+      </div>
+        <div className="flex flex-wrap mt-[1.25rem] gap-[1.625rem] justify-around">
         {isLoading && (<Image
             src={loader}
             alt="loader"
-            className="w-[100px] h-[100px]  object-contain"
+            className="w-[6.25rem] h-[.25rem] object-contain"
           />)}
-        {!isLoading && userCampaigns.length === 0 && (<p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">You have not created any campaigns yet</p>)}
-        {!isLoading && userCampaigns.length > 0 && userCampaigns.map((campaign, i) => <FundCard key={i}{...campaign} />)}
+        {!isLoading && userCampaigns.length === 0 && (<p className="font-epilogue font-semibold text-[1ren] leading-[1.9rem] ">You have not created any campaigns yet</p>)}
+        {!isLoading && userCampaigns.length > 0 && userCampaigns.map((campaign, i) => (<FundCard key={i}  {...campaign} params={...params}  />))}
         </div>
     </div>
   )

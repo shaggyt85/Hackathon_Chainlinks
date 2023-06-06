@@ -6,11 +6,10 @@ import  folder  from '@/public/assets/folder.svg'
 import Logo from '@/public/assets/Logo.jpg'
 import Image from "next/image";
 
-const FundCard = ({owner, target, endAt, startAt, votes, id}) => {
-  const remainingDays = daysLeft(endAt);
-  const formattedDate = startDays(startAt)
-  const formattedEndDate = endDays(endAt)
+const FundCard = ({owner, target, votes, id, params}) => {
   const {data} = useThemeContext()
+  console.log(params, "fundCard");
+  
 
 const parsedData = data.map((item) => ({...item}));
 const dataFirebase = (id, owner) => {
@@ -21,7 +20,7 @@ const item = dataFirebase(id, owner);
 if (item) {
   return (
     <div>
-      <div className="sm:w-[288px] w-full rounded-[15px] bg-[#e2dfdfec] p-[20px] cursor-pointer">
+      <div className="sm:w-[18rem] w-full rounded-[1rem] bg-[#e5e5ee] p-[20px] cursor-pointer" onClick={() => {window.location.href = `/pages/campaigns/${item.id}`}}>
             <img src={item.image} alt="fund" className="w-full h-[158px] object-cover rounded-[15px]"  />
             <div className="flex flex-col p-4">
       <div className="flex flex-row items-center mb-[18px]">

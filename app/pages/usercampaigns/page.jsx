@@ -6,7 +6,7 @@ import UserDisplayCampaigns from '@/app/Components/UserDisplayCampaigns';
 const page = () => {
     const {userCampaigns} = useThemeContext()
     return <>
-    <UserDisplayCampaigns title="all User Campaigns" userCampaigns={userCampaigns} />"
+    <UserDisplayCampaigns title="all User Campaigns" userCampaigns={userCampaigns} />
     </>
 }
 
