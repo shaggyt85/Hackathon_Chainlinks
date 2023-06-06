@@ -18,7 +18,7 @@ const links = [
   },
   {
     label: "About",
-    route: "/pages/nosotros",
+    route: "/pages/about",
   },
   {
     label: "Profile",
