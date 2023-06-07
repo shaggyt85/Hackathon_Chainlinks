@@ -65,8 +65,6 @@ export const StateContextProvider = ({ children }) => {
       try {
         const campaigns = await getCampaigns()
         const allStateCampaigns = await getUserCampaigns()
-        console.log(campaigns, "campaigns")
-        console.log(allStateCampaigns, "allStateCampaigns")
         setCampaigns(campaigns)
         setAllStateCampaigns(allStateCampaigns)
       } catch (err) {
