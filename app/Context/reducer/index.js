@@ -19,28 +19,3 @@ export default function reducer (state, action) {
             return state
         }
 }
-
-
-// export const actionType = {
-//     SET_USER: 'SET_USER',
-//     SET_CAMPAIGNS: 'SET_CAMPAIGNS'
-// }
-
-// const reducer = (state, action) => {
-//     switch (action.type) {
-//         case actionType.SET_USER:
-//             return {
-//                 ...state,
-//                 user: action.user
-//             }
-//         case actionType.SET_CAMPAIGNS:
-//             return {
-//                 ...state,
-//                 campaigns: action.campaigns
-//             }
-//         default:
-//             return state
-//         }
-// }
-
-// export {reducer}

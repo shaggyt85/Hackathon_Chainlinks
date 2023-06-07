@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, createContext } from "react";
+import React, { useContext, createContext, useEffect, use } from "react";
 import {
   useContract,
   useContractWrite,
@@ -13,6 +13,8 @@ import { ethers } from "ethers";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
+  const [campaigns, setCampaigns] = React.useState([]);
+  const [allStateCampaigns, setAllStateCampaigns] = React.useState([]);
   const { contract } = useContract(
     CrowdFundingAddress,
     AbiContract
@@ -52,17 +54,34 @@ export const StateContextProvider = ({ children }) => {
     }))
     return parsedCampaigns
   }
-
-
-
+  
   const getUserCampaigns = async () => {
     const allCampaigns = await getCampaigns()
     const filteredCampaigns = allCampaigns.filter(campaign => campaign.owner === address)
     return filteredCampaigns
   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const campaigns = await getCampaigns()
+        const allStateCampaigns = await getUserCampaigns()
+        console.log(campaigns, "campaigns")
+        console.log(allStateCampaigns, "allStateCampaigns")
+        setCampaigns(campaigns)
+        setAllStateCampaigns(allStateCampaigns)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+  
+    fetchData()
+  
+    const intervalId = setInterval(fetchData, 30000)
+  
+    return () => clearInterval(intervalId)
+  }, [contract])  
 
   const getVote = async (idUrl) => {
-    console.log(idUrl, "getVote")
     try {
       const data = await voteCampaign({args: [
         idUrl.idUrl,
@@ -72,6 +91,7 @@ export const StateContextProvider = ({ children }) => {
     console.log("contract call failure", error)
     }
   }
+
   
   return (
     <StateContext.Provider value={{ contract, connect, address, getCampaigns, create: publishCampaigns, getUserCampaigns, voteCampaign: getVote, }}>

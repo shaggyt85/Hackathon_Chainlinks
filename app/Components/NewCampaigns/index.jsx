@@ -5,10 +5,8 @@ import { storage } from '@/firebase.config';
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { saveItem } from '@/app/utils/firebaseFunction';
 import { useStateContext } from '@/app/Context/Thirdweb';
-import { useStateValue } from '@/app/Context/StateProvider';
 import { ethers } from 'ethers';
 import { useRouter } from 'next/navigation';
-// import { useRouter } from 'next/router';
 import { useThemeContext } from '@/app/Context/GetCampaigns';
 
 
@@ -18,7 +16,6 @@ const NewCampaigns = () => {
   const [fields, setFields] = useState(false)
   const [alertStatus, setAlertStatus] = useState('danger')
   const [msg, setMsg] = useState(null)
-  const [{campaignss}, dispatch ] = useStateValue()
   const {campaigns, userCampaigns } = useThemeContext()
   const {address, create } = useStateContext()
   const [isForm, setIsForm] = useState({
@@ -188,9 +185,7 @@ const NewCampaigns = () => {
               btnType="submit"
               title="Submit new campaign"
               styles="bg-[#1dc071]"
-              // handleClick={saveDetails}
-              
-            />
+              />
           </div>
       </form>
     </div>

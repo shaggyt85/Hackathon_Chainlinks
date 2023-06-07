@@ -1,5 +1,4 @@
 import React from 'react'
-import { FundCard } from '.'
 import Image from 'next/image'
 import loader from '@/public/assets/loader.svg'
 import CampaignDetails from './CampaignDetails'

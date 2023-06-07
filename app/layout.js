@@ -3,7 +3,7 @@ import { NavBar } from "./Components";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { SidebarProvider } from "./Context/SidebarContext";
-import { StateProvider, useStateValue } from "./Context/StateProvider";
+import { StateProvider } from "./Context/StateProvider";
 import { initialState } from "./Context/initialState";
 import  reducer  from "./Context/reducer";
 import {

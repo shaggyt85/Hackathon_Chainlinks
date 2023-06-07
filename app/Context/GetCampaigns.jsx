@@ -14,8 +14,7 @@ export const ThemeProvider = ({ children }) => {
 
   const fetchCampaigns = async () => {
     setIsLoading(true);
-    const data = await getCampaigns();
-    const userData = await getUserCampaigns();
+    const [data, userData] = await Promise.all([getCampaigns(), getUserCampaigns()]);
     setCampaigns(data);
     setUserCampaigns(userData);
     setIsLoading(false);
@@ -37,7 +36,6 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     fetchData()
   }, [])
-
   return (
     <ThemeContext.Provider value={{ campaigns, isLoading, userCampaigns, data }}>
       {children}

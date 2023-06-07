@@ -74,10 +74,10 @@ const CampaignDetails = ({
                 <CountBox title="Day End" value={formattedEndDate} />
                 <CountBox title="Finaliza" value={remainingDays} />
                 <CountBox title={`Raised of ${target}`} value={target} />
-                <CountBox
+                {/* <CountBox
                   title="Total Backers"
                   // value={isDonators.length}
-                />
+                /> */}
               </div>
             </div>
             <div className="mt-[60px] flex md:flex-row flex-col gap-5">

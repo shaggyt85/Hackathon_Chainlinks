@@ -22,10 +22,6 @@ import UserDisplayCampaigns from './UserDisplayCampaigns'
 import CountBox from './CountBox'
 import About from './About'
 
-
-
-
-
 export {
     NavBar,
     Footer,
